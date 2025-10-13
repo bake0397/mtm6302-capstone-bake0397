@@ -2,6 +2,9 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.container-fluid{
+  --bs-gutter-x: 0 !important;
+}
 
 .navbar-logo img {
       width: 100%; /* Increase logo width */
