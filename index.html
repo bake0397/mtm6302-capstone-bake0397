@@ -20,9 +20,9 @@
 <body>
 
     <!-- Header -->
-    <header>
+    <header id="top">
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black" aria-label="Main navigation">
             <div class="container">
                 <!-- Logo on the Left -->
                 <a class="navbar-logo" href="#">
@@ -43,10 +43,10 @@
                             <a class="nav-link active" aria-current="page" href="#">About APOD</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Calendar</a>
+                            <a class="nav-link" id="calendar-link" href="#" aria-label="Open APOD calendar">Calendar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Submissions</a>
+                            <a class="nav-link" href="#favourites">My Favourites</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
@@ -59,40 +59,46 @@
 
     <!-- APOD Display -->
     <section class="hero position-relative">
-        <img src="./images/hero-apod.png" class="img-fluid w-100" alt="Hero Image">
+        <img id="apod-image" src="./images/hero-apod.png" class="img-fluid w-100" alt="Hero Image">
         <div class="hero-text position-absolute top-0 start-0 text-white p-4">
-            <p>Todays Date</p>
+            <p id="apod-date-display">Todays Date</p>
         </div>
-        <!-- Heart Button -->
-        <button class="btn btn-light position-absolute bottom-0 end-0 m-3 rounded-circle heart-btn">
-        <i class="bi bi-heart"></i>
+        <!-- Heart/Favourite Button -->
+        <button id="favourite-btn" class="btn btn-light position-absolute bottom-0 end-0 m-3 rounded-circle heart-btn">
+            <i class="bi bi-heart"></i>
         </button>
     </section>
 
+    <!-- ARCHIVE SECTION -->
     <section class="archive-section py-4 bg-white">
         <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
             <!-- H2 -->
             <h2 class="archive-title mb-3 mb-md-0 text-black fw-semibold">Archive Photo of the Day</h2>
 
-            <!-- Button with calendar icon -->
-            <button class="btn btn-dark bg-black rounded-pill archive-btn px-4 py-2 d-flex align-items-center">
-                <i class="bi bi-calendar3 ms-2 pe-3"></i>
-                <span>DD MM YYYY</span>
-            </button>
+            <!-- Select Date Form -->
+            <form id="apod-form" class="d-flex align-items-center gap-2 mb-0">
+                <label for="apod-date" class="visually-hidden">Choose a date</label>
+                <input type="date" id="apod-date" required>
+                <!-- Select Date Button -->
+                <button type="submit"
+                    class="btn btn-dark bg-black rounded-pill archive-btn px-4 py-1 d-flex align-items-center">
+                    <!-- Fetches selected APOD -->
+                    <span id="select">Submit</span>
+                </button>
+            </form>
         </div>
     </section>
 
+    <!-- ABOUT SECTION -->
     <section>
         <div class="pt-4 container-fluid bg-black">
             <div class="bg-white text-black">
-                <h3 class="p-3 d-flex">About Todays Photo</h3>
+                <h3 id="apod-title" class="p-3 d-flex">About Todays Photo</h3>
             </div>
             <div class="p-4 text-white">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p id="apod-explanation">
+                    <!-- JS inserets photo details here -->
+                </p>
             </div>
         </div>
     </section>
@@ -104,31 +110,13 @@
         </div>
     </section>
 
-    <!-- Favourites Section -->
-    <section>
+    <!-- FAVOURITES SECTION -->
+    <section id="favourites">
         <div class="container-fluid bg-black">
             <h3 class="p-3 mb-3 text-white">My Favourites</h3>
         </div>
-        <div id="carouselExample" class="mb-3 carousel slide">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="./images/archive-01.png" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="./images/archive-02.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="./images/archive-04.png" class="d-block w-100" alt="...">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+        <div id="favourites-list" class="p-3">
+            <!-- JS inserts favourited images here -->
         </div>
     </section>
 
@@ -148,10 +136,11 @@
                             <a href="#" class="text-white text-decoration-none d-block py-2">About APOD</a>
                         </li>
                         <li class="footer-link border-bottom">
-                            <a href="#" class="text-white text-decoration-none d-block py-2">Calendar</a>
+                            <a id="calendar-link-footer" href="#" class="text-white text-decoration-none d-block py-2"
+                                aria-label="Open APOD calendar">Calendar</a>
                         </li>
                         <li class="footer-link border-bottom">
-                            <a href="#" class="text-white text-decoration-none d-block py-2">Submissions</a>
+                            <a href="#favourites" class="text-white text-decoration-none d-block py-2">My Favourites</a>
                         </li>
                         <li class="footer-link border-top">
                             <a href="#" class="text-white text-decoration-none d-block py-2">Contact</a>
@@ -160,10 +149,26 @@
                 </div>
             </div>
         </div>
+
+        <a href="#top" id="back-to-top" class="btn btn-light border border-2 border-dark rounded-pill position-fixed end-0 bottom-0 m-3 d-none text-black">
+            Back to top
+        </a>
+
+        <!-- Favourite Images Modal -->
+        <div id="apod-modal" aria-modal="true" aria-hidden="true" aria-label="Favourite image details"></div>
+
+        <!-- Navigation Calendar Modal -->
+        <div id="calendar-modal" role="dialog" aria-modal="true"
+            aria-label="Choose date for Astronomy Picture of the Day" aria-hidden="true"></div>
     </footer>
 
     <!-- JavaScript -->
+
+    <!-- BBOOTSTRAP JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- CUSTOM JavaScript -->
+    <script src="script.js"></script>
 </body>
 
 </html>
