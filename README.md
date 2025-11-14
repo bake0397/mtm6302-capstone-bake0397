@@ -1,97 +1,73 @@
-mtm6302-capstone-bake0397
+# **mtm6302-capstone-bake0397**  
+APOD  
+**Taylor Baker**  
+**40895584**
 
-APOD
-Taylor Baker
-40895584
+---
 
-Part 4 – Development Report
-Overview
+# **Part 4 – Development Report**
 
-This phase focused on building the interactive functionality for the APOD web application, including API integration, favourites storage, modal features, accessibility improvements, and responsive UI behaviour.
+## **Overview**
+This phase focused on building the interactive functionality for the APOD web application, including API integration, favourites storage, modal interactions, accessibility improvements, and responsive layout behaviour.
 
-Steps Taken
-1. API Integration
+---
 
-Implemented APOD API requests using a dynamic date parameter.
+## **Steps Taken**
 
-Displayed standard images using url and high-definition images using hdurl.
+### **1. API Integration**
+- Implemented APOD API requests using a dynamic date value.
+- Displayed standard images using `url` and high-definition images using `hdurl`.
+- Added validation to prevent selecting future dates.
 
-Added date validation to prevent future selections.
+### **2. Rendering APOD Content**
+- Displayed APOD image, title, explanation, and date in the main hero section.
+- Added an HD image modal that opens when the main APOD is clicked.
 
-2. Rendering APOD Content
+### **3. Favourites System**
+- Stored favourites in `localStorage` using the APOD date as the key.
+- Added a heart button with a filled/outline visual toggle.
+- Heart resets when viewing an APOD that is *not* favourited.
 
-Displayed APOD image, date, title, and explanation in the main hero section.
+### **4. Favourites Gallery**
+- Rendered saved APODs in a responsive 5-column grid layout.
+- Used `object-fit: cover` for consistent thumbnail aspect ratios.
+- Added “View” and “Delete” buttons for each favourite.
 
-Added a dedicated HD image modal that opens when the hero image is clicked.
+### **5. Modal Features**
+- Added two custom modals:
+  - **APOD View Modal** for enlarged image display  
+  - **Calendar Modal** for selecting an APOD date
+- Selecting a date in the calendar modal automatically loads that APOD and closes the modal.
 
-3. Favourites Feature
+### **6. Accessibility Enhancements**
+- Added ARIA labels where needed.
+- Added a **Back to Top** skip link that becomes visible after scrolling.
+- Used Bootstrap utilities to reduce CSS length.
 
-Built a favourites system using localStorage that stores APOD data by date.
+---
 
-Added a heart button that visually toggles between outline and filled states.
+## **Resources Used**
+- **NASA APOD API** – https://api.nasa.gov  
+- **Bootstrap 5** – grid, layout, utilities  
+- **Bootstrap Icons** – interface icons  
+- **Google Fonts (Poppins)** – typography  
+- **MDN Web Docs** – DOM, Fetch API, event listeners  
 
-Heart resets automatically when viewing an APOD that is not saved.
+---
 
-4. Favourites Gallery
+## **Challenges**
+- Getting the calendar modal to open from both the nav and footer.
+- View button originally displaying enlarged images below the footer instead of in a modal.
+- Achieving a fully responsive favourites gallery layout.
+- Ensuring heart button properly resets when switching between saved/unsaved APODs.
+- Managing multiple modal overlays without conflict.
+- Common beginner challenges: handling fetch promises, DOM injection, conditional UI states, and working with `localStorage`.
 
-Rendered saved APODs as a responsive 5-column grid.
+---
 
-Used object-fit: cover so all thumbnails share a consistent aspect ratio.
-
-Each image includes “View” and “Delete” buttons.
-
-5. Modal Systems
-
-Created two separate modals:
-
-APOD View Modal (large image + details)
-
-Calendar Modal (opens from nav + footer)
-
-Selecting a date in the calendar modal automatically loads its APOD and closes the modal.
-
-6. Accessibility Enhancements
-
-Added targeted ARIA labels.
-
-Implemented a Skip to Top button that appears only after scrolling past the header.
-
-Styled using Bootstrap utilities to keep CSS minimal.
-
-Resources Used
-
-NASA APOD API – https://api.nasa.gov
-
-Bootstrap 5 – layout, grid, and responsive utilities
-
-Bootstrap Icons – heart icon and UI icons
-
-Google Fonts (Poppins) – site typography
-
-MDN Web Docs – DOM, events, Fetch API reference
-
-Challenges
-
-Calendar modal not triggering from footer link.
-
-Favourites “View” button opening content below the footer before modal CSS was applied.
-
-Getting the favourites grid to align evenly across screen sizes.
-
-Resetting the heart button correctly depending on whether the APOD was saved.
-
-Managing multiple modals without visual conflicts.
-
-General beginner challenges: async fetch logic, dynamic DOM injection, state management, and localStorage handling.
-
-Additional Features Added
-
-Responsive favourites gallery
-
-Skip link with scroll-trigger visibility
-
-HD hero image modal
-
-Calendar modal accessible from both nav and footer
-
-Heart button state syncing
+## **Additional Features Added**
+- Responsive favourites gallery  
+- High-definition APOD modal  
+- Calendar modal (nav + footer access)  
+- “Back to Top” skip link with scroll-activated visibility  
+- Heart button fill behaviour  
