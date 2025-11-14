@@ -1,94 +1,97 @@
-# mtm6302-capstone-bake0397
-APOD
+mtm6302-capstone-bake0397
 
+APOD
 Taylor Baker
 40895584
 
-Part 2 Key Decisions:
+Part 4 – Development Report
+Overview
 
-Layout: Single-column scroll for mobile readability. 
+This phase focused on building the interactive functionality for the APOD web application, including API integration, favourites storage, modal features, accessibility improvements, and responsive UI behaviour.
 
-Clear hierarchy: logo → photo → details → favorites → footer.
+Steps Taken
+1. API Integration
 
-Branding: APOD logo in the header, clean footer with quick links.
+Implemented APOD API requests using a dynamic date parameter.
 
-Photo of the Day: Large hero image with date, with a favorite (heart) button for quick access to users favourited photo collection.
+Displayed standard images using url and high-definition images using hdurl.
 
-Archive Access: Calendar-style button makes browsing past photos simple and familiar.
+Added date validation to prevent future selections.
 
-About/Photo Detail Section: Black background with white text for strong contrast and easy reading.
+2. Rendering APOD Content
 
-Favorites Collection: Carousel of saved photos with rounded cards for a modern feel.
+Displayed APOD image, date, title, and explanation in the main hero section.
 
-Colors & Typography: Black/white contrast for a space-inspired look, with bold headings and legible text.
+Added a dedicated HD image modal that opens when the hero image is clicked.
 
-User Experience: Touch-friendly, responsive, and consistent use of icons for intuitive navigation.
+3. Favourites Feature
 
+Built a favourites system using localStorage that stores APOD data by date.
 
-Part 3 Key Decisions:
+Added a heart button that visually toggles between outline and filled states.
 
-# Prototype Report
+Heart resets automatically when viewing an APOD that is not saved.
 
-## Overview
-This prototype was developed as part of a web development assignment, with the goal of creating a responsive and visually engaging website interface. The project focuses on layout structure, image presentation, and overall user experience while maintaining clean and organized code.
+4. Favourites Gallery
 
----
+Rendered saved APODs as a responsive 5-column grid.
 
-## Steps Taken
-1. **Initial Project Setup**
-   - Created the basic file structure (`index.html`, `styles.css`, `scripts.js`).
-   - Linked Bootstrap via CDN to access grid, layout, and component utilities.
-   - Linked Google Fonts to apply the **Poppins** font throughout the design.
+Used object-fit: cover so all thumbnails share a consistent aspect ratio.
 
-2. **Layout Development**
-   - Implemented responsive containers, rows, and columns for consistent layout across screen sizes.
-   - Added a navigation bar and footer using Bootstrap components.
+Each image includes “View” and “Delete” buttons.
 
-3. **Styling and Components**
-   - Used Bootstrap classes for styling buttons, text, spacing, and alignment.
-   - Customized parts of the layout using additional CSS where necessary/for responsiveness.
+5. Modal Systems
 
-4. **Image Integration**
-   - Collected high-quality astronomy images to visually enhance the prototype.
-   - Implemented image galleries and sections showcasing NASA telescope imagery.
+Created two separate modals:
 
-5. **Favourites/Archive Carousel**
-   - Added a Bootstrap carousel component to display (what will be) archived/favourite images.
-   - **Modified default carousel appearance** using custom CSS to better match the page theme and improve visual presentation (custom controls, spacing, and transitions).
+APOD View Modal (large image + details)
 
----
+Calendar Modal (opens from nav + footer)
 
-## Resources Used
-### Framework & Libraries
-- **Bootstrap 5**: layout, responsive grid, and reusable UI components: https://getbootstrap.com/
-- **Google Fonts: Poppins** – primary project typeface: https://fonts.google.com/specimen/Poppins
+Selecting a date in the calendar modal automatically loads its APOD and closes the modal.
 
-### Image Sources & Credits
-All images used in this prototype are for educational purposes only.
+6. Accessibility Enhancements
 
-- *A James Webb Space Telescope image of the star-forming region NGC 604*  
-  Source: Scientific American  
-  https://www.scientificamerican.com/article/9-space-images-from-nasa-and-beyond-that-stunned-in-2024/  
-  Credit: **NASA/ESA/CSA/STScI**
+Added targeted ARIA labels.
 
-- *The Helix Nebula (constellation of Aquarius, 650 light-years away)*  
-  Source: Space.com  
-  https://www.space.com/17901-amazing-helix-nebula-space-eye-photo.html  
-  Credit: **NASA/JPL-Caltech**
+Implemented a Skip to Top button that appears only after scrolling past the header.
 
-- *NASA Webb Telescope Image Gallery*  
-  https://science.nasa.gov/mission/webb/multimedia/images/  
-  Credit: **NASA**
+Styled using Bootstrap utilities to keep CSS minimal.
 
-- *Space Pulsar Navigation Image*  
-  Source: Wired  
-  https://www.wired.com/story/nasa-just-proved-it-can-navigate-space-using-pulsars-where-to-now/  
-  Credit: **Pitris/Getty Images**
+Resources Used
 
----
+NASA APOD API – https://api.nasa.gov
 
-## Challenges
-There were **no major challenges** encountered during the development process. The project ran smoothly, and Bootstrap simplified the layout creation. The only minor task involved customizing the Bootstrap carousel to improve the design aesthetic, which required some additional CSS adjustments.
+Bootstrap 5 – layout, grid, and responsive utilities
 
----
+Bootstrap Icons – heart icon and UI icons
 
+Google Fonts (Poppins) – site typography
+
+MDN Web Docs – DOM, events, Fetch API reference
+
+Challenges
+
+Calendar modal not triggering from footer link.
+
+Favourites “View” button opening content below the footer before modal CSS was applied.
+
+Getting the favourites grid to align evenly across screen sizes.
+
+Resetting the heart button correctly depending on whether the APOD was saved.
+
+Managing multiple modals without visual conflicts.
+
+General beginner challenges: async fetch logic, dynamic DOM injection, state management, and localStorage handling.
+
+Additional Features Added
+
+Responsive favourites gallery
+
+Skip link with scroll-trigger visibility
+
+HD hero image modal
+
+Calendar modal accessible from both nav and footer
+
+Heart button state syncing
