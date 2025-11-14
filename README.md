@@ -55,6 +55,24 @@ This phase focused on building the interactive functionality for the APOD web ap
 
 ---
 
+## **Accessibility References (ARIA)**
+To ensure the modals, skip links, and dynamic content were accessible, the following resources were used:
+
+- **MDN ARIA Authoring Practices**  
+  https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA  
+- **WAI-ARIA Overview (W3C Web Accessibility Initiative)**  
+  https://www.w3.org/WAI/standards-guidelines/aria/  
+- **Modal Dialog Accessibility Guidelines (W3C)**  
+  https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/  
+- **Using ARIA: Roles, States, and Properties**  
+  https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles  
+
+These resources were referenced when deciding where to apply attributes such as:  
+`aria-hidden`, `aria-label`, and accessible modal behaviours.
+
+
+---
+
 ## **Challenges**
 - Getting the calendar modal to open from both the nav and footer.
 - View button originally displaying enlarged images below the footer instead of in a modal.
