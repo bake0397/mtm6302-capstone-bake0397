@@ -1,7 +1,7 @@
-'use strict';
-
+//Store API info
 const API_KEY = 'CDflXmJyeFOr1VslnyDmo0hV2ABes8cD7v2FprKx';
 const API_URL = 'https://api.nasa.gov/planetary/apod';
+//Favourites stored in Local Storage
 const FAVOURITES_KEY = 'apodFavourites';
 
 const state = {
@@ -9,17 +9,20 @@ const state = {
   favourites: {}
 };
 
+//date picker form
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('apod-form');
   const dateInput = document.getElementById('apod-date');
   const favouriteBtn = document.getElementById('favourite-btn');
   const apodImage = document.getElementById('apod-image');
 
+  //call modal
   const modal = document.getElementById('apod-modal');
   const calendarModal = document.getElementById('calendar-modal');
   const calendarLink = document.getElementById('calendar-link');
   const calendarLinkFooter = document.getElementById('calendar-link-footer');
 
+  //skip link
   const backToTop = document.getElementById('back-to-top');
   const header = document.getElementById('top');
 
@@ -140,6 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+//creates API request URL
 function fetchApod(date) {
   const url = `${API_URL}?api_key=${API_KEY}&date=${date}`;
 
@@ -150,6 +154,7 @@ function fetchApod(date) {
       }
       return response.json();
     })
+    //checks if response is true
     .then((data) => {
       renderApod(data);
     })
